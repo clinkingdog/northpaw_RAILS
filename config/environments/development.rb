@@ -24,7 +24,7 @@ Northpaw::Application.configure do
   config.action_mailer.smtp_settings = {
     address: "smtp.sendgrid.net",
     port: 25,
-    domain: "example.com",
+    domain: "northpaw.herokuapp.com",
     authentication: "plain",
     user_name: ENV["SENDGRID_USERNAME"],
     password: ENV["SENDGRID_PASSWORD"]
