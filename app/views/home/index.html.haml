@@ -1,4 +1,11 @@
 %h3 Home
-- @users.each do |user|
+#welcome
+  %p
+    Welcome to the homepage of Project Northpaw! When done, this is going to be
+    a cool online story game.
+  %p
+    For now, though, there ain't nothin' here :-)
+-#
+    - @users.each do |user|
   %p
     User: #{link_to user.name, user}
