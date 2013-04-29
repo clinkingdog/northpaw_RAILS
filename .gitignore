@@ -73,3 +73,6 @@ pickle-email-*.html
 
 # Ignore application configuration
 /config/application.yml
+
+# Vagrant stuff
+/.vagrant
