@@ -1,7 +1,9 @@
 source 'https://rubygems.org'
 gem 'rails', '3.2.13'
-group :development do
+group :development, :test do
   gem 'sqlite3'
+  gem 'rspec-rails'
+  gem 'spork'
 end
 group :production do
   gem 'pg'
