@@ -19,7 +19,7 @@ end
 def create_user
   create_visitor
   delete_user
-  @user = FactoryGirl.create(:user, email: @visitor[:email])
+  @user = FactoryGirl.create(:user, email: @visitor[:email], password: @visitor[:password], confirmed_at: Time.now)
 end
 
 def delete_user
@@ -140,7 +140,6 @@ Then /^I should be signed in$/ do
 end
 
 Then /^I should be signed out$/ do
-  page.should have_content "Sign up"
   page.should have_content "Login"
   page.should_not have_content "Logout"
 end
