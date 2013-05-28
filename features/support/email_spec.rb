@@ -1,1 +1,1 @@
-require 'email_spec/cucumber'
+require 'cucumber'
