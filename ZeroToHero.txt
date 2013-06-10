@@ -1,0 +1,17 @@
+Install:
+ * Git
+ * VirtualBox
+ * Vagrant
+
+Set up:
+ * git clone
+ * git add remote heroku git@heroku.com:northpaw.git
+ * vagrant up
+
+Run:
+ * Git Bash for git operations
+ * Git Bash > vagrant ssh > cd /vagrant | for manipulation of the VM
+ * Git Bash > vagrant ssh > cd /vagrant > bundle exec guard | for automated tests
+ * Git Bash > vagrant ssh > cd /vagrant > bundle exec spork | for speeding up tests
+ * Git Bash > vagrant ssh > cd /vagrant > bundle exec rails server | for serving the dev site (on localhost:3000 from your host machine)
+   - You can also use the alias "npsrv" for the final command above
