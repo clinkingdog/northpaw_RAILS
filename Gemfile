@@ -4,6 +4,12 @@ group :development, :test do
   gem 'sqlite3'
   gem 'rspec-rails'
   gem 'spork'
+  gem 'guard-rspec'
+  gem 'libnotify'
+end
+group :test do
+  gem 'capybara', '>= 2.0.2'
+  gem 'rb-inotify'
 end
 group :production do
   gem 'pg'
@@ -20,7 +26,6 @@ gem "html2haml", ">= 1.0.1", :group => :development
 gem "cucumber-rails", ">= 1.3.1", :group => :test, :require => false
 gem "database_cleaner", ">= 1.0.0.RC1", :group => :test
 gem "launchy", ">= 2.2.0", :group => :test
-gem "capybara", ">= 2.0.2", :group => :test
 gem "factory_girl_rails", ">= 4.2.0", :group => [:development, :test]
 gem "bootstrap-sass", ">= 2.3.0.0"
 gem "sendgrid", ">= 1.0.1"
