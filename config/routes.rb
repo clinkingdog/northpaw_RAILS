@@ -1,4 +1,7 @@
 Northpaw::Application.routes.draw do
+  resources :reports
+
+
   authenticated :user do
     root :to => 'home#index'
   end
