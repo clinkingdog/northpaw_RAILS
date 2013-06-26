@@ -22,9 +22,9 @@ Northpaw::Application.configure do
   config.action_mailer.default :charset => "utf-8"
 
   config.action_mailer.smtp_settings = {
-    address: "smtp.sendgrid.net",
+    address: "192.168.56.1",
     port: 25,
-    domain: "northpaw.herokuapp.com",
+    domain: "test.tst",
     authentication: "plain",
     user_name: ENV["SENDGRID_USERNAME"],
     password: ENV["SENDGRID_PASSWORD"]
