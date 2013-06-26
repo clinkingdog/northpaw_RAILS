@@ -43,6 +43,10 @@ Then(/^I see a message telling me I cannot post reports$/) do
   page.should have_content 'cannot create reports unless you are signed in as an MC'
 end
 
+Then(/^I see a message telling me I need to sign in$/) do
+  page.should have_content 'You need to sign in or sign up before continuing.'
+end
+
 Then /^I see that report$/ do
   pending
   #page.should have_content @report.text

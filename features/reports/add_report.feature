@@ -6,7 +6,7 @@ Feature: Add a report
     Scenario: Visitor cannot access report page
       Given I am not signed in
       When I visit the report entry page
-      Then I see a message telling me I cannot post reports
+      Then I see a message telling me I need to sign in
       
     Scenario: Player cannot access report page
       Given I am signed in as a player
@@ -16,7 +16,7 @@ Feature: Add a report
     Scenario: Visitor cannot post report
       Given I am not signed in
       When I post a report
-      Then I see a message telling me I cannot post reports
+      Then I see a message telling me I need to sign in
       
     Scenario: Player cannot post report
       Given I am signed in as a player
