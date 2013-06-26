@@ -2,5 +2,7 @@
 
 FactoryGirl.define do
   factory :report do
+    title "MyString"
+    body "MyString"
   end
 end

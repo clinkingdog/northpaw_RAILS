@@ -1,7 +1,14 @@
 ### GIVEN ###
-Given /^I am signed in as a GM$/ do
-  create_gm
-  sign_in @gm
+Given /^I am signed in as an MC$/ do
+  create_mc
+  sign_in @mc
+end
+
+Given /^an MC has posted a report$/ do
+  create_mc
+  sign_in @mc
+  create_report
+  post_report @report
 end
 
 ### WHEN ###
@@ -10,14 +17,12 @@ When /^I post a report$/ do
   post_report @report
 end
 
-### THEN ###
-Then /^I see the report submitted$/ do
-  # find report on the page
-  # check the text is equal to @report.text
+When /^I sign in as a Player$/ do
+  create_player
+  sign_in @player
 end
 
-Then /^the report is visible to players$/ do
-  visit '/reports'
-  # find first report on page
-  # check the text is equal to @report.text
+### THEN ###
+Then /^I see that report$/ do
+  page.should have_content @report.text
 end

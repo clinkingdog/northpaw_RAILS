@@ -1,5 +1,11 @@
 %p#notice= notice
 
+%p
+  %b Title:
+  = @report.title
+%p
+  %b Body:
+  = @report.body
 
 = link_to 'Edit', edit_report_path(@report)
 \|

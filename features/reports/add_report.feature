@@ -3,8 +3,13 @@ Feature: Add a report
   A GM
   Should be able to post a report
   
-    Scenario: A new report
-      Given I am signed in as a GM
+    Scenario: Posting a report
+      Given I am signed in as an MC
       When I post a report
-      Then I see the report submitted
-        And the report is visible to players
+      Then I see that report
+    
+    Scenario: Players viewing reports
+      Given an MC has posted a report
+      When I sign in as a Player
+      Then I see that report
+    
