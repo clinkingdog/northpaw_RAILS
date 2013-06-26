@@ -1,6 +1,6 @@
 ### GIVEN ###
 Given(/^I am not signed in$/) do
-  pending
+  visit '/users/sign_out'
 end
 
 Given(/^I am signed in as a player$/) do
@@ -23,7 +23,7 @@ end
 
 ### WHEN ###
 When(/^I visit the report entry page$/) do
-  pending
+  visit '/reports/new'
 end
 
 When /^I post a report$/ do
@@ -40,7 +40,7 @@ end
 
 ### THEN ###
 Then(/^I see a message telling me I cannot post reports$/) do
-  pending
+  page.should have_content 'cannot create reports unless you are signed in as an MC'
 end
 
 Then /^I see that report$/ do
