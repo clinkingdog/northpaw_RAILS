@@ -1,10 +1,37 @@
+### UTILITY METHODS ###
+
+#TODO - refactor these into common helper with user_steps.rb
+
+def create_player
+  @player ||= { :name => "Ritsuka Player", :email => "ritsuka@example.com",
+    :password => "changeme", :password_confirmation => "changeme" }
+  
+  delete_player
+  
+  @player_user = FactoryGirl.create(:user, email: @player[:email], password: @player[:password], confirmed_at: Time.now)
+end
+
+def delete_player
+  @player_user ||= User.first conditions: {:email => @player[:email]}
+  @player_user.destroy unless @player_user.nil?
+end
+
+def player_sign_in
+  visit '/users/sign_out'
+  visit '/users/sign_in'
+  fill_in "Email", :with => @player[:email]
+  fill_in "Password", :with => @player[:password]
+  click_button "Sign in"
+end
+
 ### GIVEN ###
 Given(/^I am not signed in$/) do
   visit '/users/sign_out'
 end
 
 Given(/^I am signed in as a player$/) do
-  pending
+  create_player
+  player_sign_in
 end
 
 Given /^I am signed in as an MC$/ do
