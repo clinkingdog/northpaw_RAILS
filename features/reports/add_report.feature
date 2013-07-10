@@ -13,16 +13,6 @@ Feature: Add a report
       When I visit the report entry page
       Then I see a message telling me I cannot post reports
       
-    Scenario: Visitor cannot post report
-      Given I am not signed in
-      When I post a report
-      Then I see a message telling me I need to sign in
-      
-    Scenario: Player cannot post report
-      Given I am signed in as a player
-      When I post a report
-      Then I see a message telling me I cannot post reports
-      
     Scenario: MC posting a report
       Given I am signed in as an MC
       When I post a report

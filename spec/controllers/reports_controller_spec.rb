@@ -62,6 +62,14 @@ describe ReportsController do
   end
 
   describe "POST create" do
+    describe "as a visitor" do
+      pending "report access controls TBI"
+    end
+    
+    describe "as a Player" do
+      pending "report access controls TBI"
+    end
+    
     describe "with valid params" do
       it "creates a new Report" do
         expect {

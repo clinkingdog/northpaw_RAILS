@@ -55,8 +55,6 @@ end
 
 When /^I post a report$/ do
   pending
-  #create_report
-  #post_report @report
 end
 
 When /^I sign in as a Player$/ do
