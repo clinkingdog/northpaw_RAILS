@@ -43,6 +43,10 @@ Spork.prefork do
     # the seed, which is printed after each run.
     #     --seed 1234
     config.order = "random"
+    
+    # Include Devise helpers for controller tests
+    # TODO (Except it doesn't seem to work so I've had to specify it manually in the test)
+    config.include Devise::TestHelpers, :type => :controller
   end
 end
 
