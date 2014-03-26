@@ -63,11 +63,15 @@ describe ReportsController do
 
   describe "POST create" do
     describe "as a visitor" do
-      pending "report access controls TBI"
+      it "is not allowed" do
+        pending "report access controls TBI"
+      end
     end
     
     describe "as a Player" do
-      pending "report access controls TBI"
+      it "is not allowed" do
+        pending "report access controls TBI"
+      end
     end
     
     describe "with valid params" do
