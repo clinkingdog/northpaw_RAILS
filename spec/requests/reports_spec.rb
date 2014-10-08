@@ -1,6 +1,6 @@
 require 'spec_helper'
 include Devise::TestHelpers
-
+  
 describe ReportsController, :type => :controller do
 
   describe "GET /reports" do
@@ -16,16 +16,19 @@ describe ReportsController, :type => :controller do
     # end
     
     it "returns the page" do
-      # QQ PROBABLY REMOVE @request.env["devise.mapping"] = Devise.mappings[:user]
+      @request.env["devise.mapping"] = Devise.mappings[:user]
+    
       user = FactoryGirl.create(:user, :email => 'test2@test.test', :password => 'testtest', :confirmed_at => Time.now)
       sign_in :user, user
       # QQ DEBUG REMOVE
+      p "User is signed in? " + (subject.user_signed_in? ? "yes" : "no")
+      p "Current User:"
       p subject.current_user
 
       # Run the generator again with the --webrat flag if you want to use webrat methods/matchers
       get "/reports"
 
-      response.status.should eq(200)
+      response.status.should eq(200), "Response body was: #{response.body}"
       # QQ response.should be_success
     end
   end
