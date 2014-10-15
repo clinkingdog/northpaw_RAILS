@@ -8,7 +8,16 @@ def create_player
   
   delete_player
   
-  @player_user = FactoryGirl.create(:user, email: @player[:email], password: @player[:password], confirmed_at: Time.now)
+  @player_user = FactoryGirl.create(:user, email:@player[:email], password:@player[:password], confirmed_at:Time.now)
+end
+
+def create_mc
+  @mc ||= { :name => "Sam MC", :email => "sam@example.com",
+    :password => "changeme", :password_confirmation => "changeme" }
+  
+  delete_mc
+  
+  @mc_user = FactoryGirl.create(:user, email:@mc[:email], password:@mc[:password], confirmed_at:Time.now)
 end
 
 def delete_player
@@ -16,11 +25,24 @@ def delete_player
   @player_user.destroy unless @player_user.nil?
 end
 
+def delete_mc
+  @mc_user ||= User.first conditions: {:email => @mc[:email]}
+  @mc_user.destroy unless @mc_user.nil?
+end
+
 def player_sign_in
   visit '/users/sign_out'
   visit '/users/sign_in'
   fill_in "Email", :with => @player[:email]
   fill_in "Password", :with => @player[:password]
+  click_button "Sign in"
+end
+
+def mc_sign_in
+  visit '/users/sign_out'
+  visit '/users/sign_in'
+  fill_in "Email", :with => @mc[:email]
+  fill_in "Password", :with => @mc[:password]
   click_button "Sign in"
 end
 
@@ -35,9 +57,8 @@ Given(/^I am signed in as a player$/) do
 end
 
 Given /^I am signed in as an MC$/ do
-  pending
-  #create_mc
-  #sign_in @mc
+  create_mc
+  mc_sign_in
 end
 
 Given /^an MC has posted a report$/ do
@@ -54,7 +75,10 @@ When(/^I visit the report entry page$/) do
 end
 
 When /^I post a report$/ do
-  pending
+  visit '/reports/new'
+  fill_in 'title', :with=>'Test Report Occurred!'
+  fill_in 'body', :with=>'This is a test report. Stuff occurred.'
+  click_button 'Submit'
 end
 
 When /^I sign in as a Player$/ do
