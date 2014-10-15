@@ -22,7 +22,7 @@ Northpaw::Application.configure do
   config.action_mailer.default :charset => "utf-8"
 
   config.action_mailer.smtp_settings = {
-    address: "192.168.56.1",
+    address: "host",
     port: 25,
     domain: "test.tst",
     authentication: "plain",
